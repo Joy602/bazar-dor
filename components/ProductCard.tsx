@@ -4,37 +4,69 @@ import Link from "next/link";
 import { toBengaliNumber } from "@/lib/utils";
 
 interface Product {
-  id: number | string;
-  name: string;
-  slug?: string;
-  category?: string;
-  unit?: string;
-  emoji?: string;
-  price?: number;
-  change?: number;
+  [key: string]: any;
 }
 
 export default function ProductCard({ product }: { product: Product }) {
-  const price = product.price ?? 0;
-  const change = product.change ?? 0;
+  if (!product) return null;
+
+  // ১. ID বের করা
+  const id = product.id || product._id || product.slug || "1";
+
+  // ২. প্রোডাক্টের নাম (সব ধরণের ফিল্ড চেক করা)
+  const name =
+    product.name ||
+    product.product_name ||
+    product.title ||
+    product.নাম ||
+    product.পণ্যের_নাম ||
+    "নামহীন পণ্য";
+
+  // ৩. দাম (সব ধরণের ফিল্ড চেক করা)
+  const rawPrice =
+    product.price ??
+    product.current_price ??
+    product.today_price ??
+    product.দাম ??
+    product.আজকের_দাম ??
+    0;
+  const price =
+    typeof rawPrice === "number" ? rawPrice : parseFloat(rawPrice) || 0;
+
+  // ৪. দামের পরিবর্তন % (সব ধরণের ফিল্ড চেক করা)
+  const rawChange =
+    product.change ??
+    product.price_change ??
+    product.percent ??
+    product.পরিবর্তন ??
+    0;
+  const change =
+    typeof rawChange === "number" ? rawChange : parseFloat(rawChange) || 0;
+
+  // ৫. ইউনিট (প্রতি কেজি / প্রতি লিটার)
+  const unit = product.unit || product.একক || "kg";
+
+  // ৬. ইমোজি / আইকন
+  const emoji = product.emoji || product.icon || product.ছবি || "🛒";
+
   const isUp = change > 0;
   const isDown = change < 0;
 
   return (
     <Link
-      href={`/product/${product.id}`}
+      href={`/product/${id}`}
       className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
     >
       <div className="flex items-start gap-4">
         <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-          {product.emoji || "🛒"}
+          {emoji}
         </div>
         <div>
-          <h3 className="font-bold text-gray-900 text-lg group-hover:text-emerald-700 transition-colors">
-            {product.name}
+          <h3 className="font-bold text-gray-900 text-base sm:text-lg group-hover:text-emerald-700 transition-colors line-clamp-1">
+            {name}
           </h3>
           <p className="text-xs text-gray-500 font-medium mt-0.5">
-            {product.unit || "প্রতি কেজি"}
+            {unit.startsWith("প্রতি") ? unit : `প্রতি ${unit}`}
           </p>
         </div>
       </div>

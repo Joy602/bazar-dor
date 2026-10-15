@@ -12,7 +12,13 @@ async function getProducts() {
       },
     );
     const data = await res.json();
-    return data?.data || data || [];
+
+    // এপিআই রেসপন্স data.data বা data.products বা সরাসরি data হিসেবে আসতে পারে
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.data)) return data.data;
+    if (Array.isArray(data?.products)) return data.products;
+
+    return [];
   } catch (error) {
     console.error("Failed to fetch products:", error);
     return [];

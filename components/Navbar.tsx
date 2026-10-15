@@ -1,11 +1,11 @@
-"tsx";
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingCart } from "lucide-react";
+import { Suspense } from "react";
 
-export default function Navbar() {
+function NavbarContent() {
   const pathname = usePathname();
 
   // ক্যাটাগরি লিস্ট (ডিজাইন অনুযায়ী)
@@ -105,5 +105,13 @@ export default function Navbar() {
         </div>
       </div>
     </header>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <Suspense fallback={<div className="h-28 bg-white border-b" />}>
+      <NavbarContent />
+    </Suspense>
   );
 }
