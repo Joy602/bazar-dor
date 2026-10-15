@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# বাজার দর / BazarDor
 
-## Getting Started
+বাজার দর একটি আধুনিক এবং রেসপনসিভ ওয়েব অ্যাপ্লিকেশন, যার মাধ্যমে বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারভিত্তিক দাম, পরিবর্তন এবং সর্বনিম্ন-সর্বাধিক মূল্যের তুলনা এক নজরে দেখা যায়।
 
-First, run the development server:
+## 🚀 প্রযুক্তি সমাহার (Technologies Used)
+
+- **Next.js (App Router)** - UI ও পেজ নেভিগেশন
+- **Tailwind CSS** - রেসপনসিভ স্টাইলিং ও ডিজাইন
+- **TypeScript** - টাইপ সেফটি
+- **BetterAuth** - নিরাপদ ইউজার অথেনটিকেশন (Email/Password, Google, GitHub)
+- **Lucide React** - আইকন লাইব্রেরি
+
+## ✨ মূল বৈশিষ্ট্যসমূহ (Key Features)
+
+1. **ন্যাভবার ও প্রাইজ টিকার:** ফিক্সড ন্যাভবার, বাংলা তারিখ, ক্যাটাগরি ট্যাব এবং ইনফিনিট স্ক্রোলিং মারকিউ প্রাইস টিকার।
+2. **হিরো সেকশন ও স্মুথ স্ক্রোল:** আকর্ষণীয় ব্যানার এবং এক ক্লিকে `#সব-পণ্য` সেকশনে স্মুথ স্ক্রোলিং।
+3. **বাজার বিশ্লেষণ ও কার্ড গ্রিড:** দাম বাড়া ও কমার ভিত্তিতে শীর্ষ প্রডাক্ট এবং বাংলা ডিজিটসহ সুন্দর রেসপনসিভ কার্ড গ্রিড।
+4. **বাংলা সর্টিং সহ ক্যাটাগরি পেজ:** ক্যাটাগরিভিত্তিক ফিল্টারিং এবং বাংলা সংখ্যা সঠিকভাবে সর্ট করার সুবিধা (ডিফল্ট, কম থেকে বেশি, বেশি থেকে কম)।
+5. **প্রোডাক্ট ডিটেইলস ও বাজার টেবিল:** সুরক্ষিত রুটের মাধ্যমে বিভিন্ন বাজারের সর্বনিম্ন, সর্বাধিক ও গড় দামের বিস্তারিত টেবিল।
+6. **ইউজার অথ ও প্রোফাইল আপডেট:** BetterAuth দিয়ে সাইন ইন, সাইন আপ এবং প্রোফাইল নাম আপডেট করার সুবিধা।
+7. **কাস্টম ৪০৪ ও লোডিং স্টেট:** অজানা রুটের জন্য ফ্রেন্ডলি ৪০৪ পেজ এবং স্কেলেটন লোডিং অ্যানিমেশন।
+
+## 💻 প্রজেক্ট রান করার নিয়ম
 
 ```bash
+git clone [https://github.com/your-username/bazar-dor.git](https://github.com/your-username/bazar-dor.git)
+cd bazar-dor
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
